@@ -20,14 +20,18 @@
                         <tr>
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->name }}</td>
-                            <td>
-                                <a class="btn btn-warning btn-sm" href="{{ route('admin.posts.edit', $post) }}">Editar</a>
+                            <td width="10px">
+                                <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post) }}">
+                                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                                </a>
                             </td>
-                            <td>
+                            <td width="10px">
                                 <form action="{{ route('admin.posts.destroy', $post) }}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
                                 </form>
                             </td>
                         </tr>

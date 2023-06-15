@@ -3,7 +3,9 @@
 @section('title', 'Blog')
 
 @section('content_header')
-    
+    @can('admin.tags.create')
+        <a class="btn btn-info btn-sm float-right" href="{{ route('admin.tags.create') }}">Nueva etiqueta</a>
+    @endcan
     <h1>Mostrar listado de etiquetas</h1>
 @stop
 
@@ -16,9 +18,6 @@
     @endif
     
     <div class="card">
-        <div class="card-header">
-            <a class="btn btn-info" href="{{ route('admin.tags.create') }}">Nueva etiqueta</a>
-        </div>
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
@@ -34,14 +33,22 @@
                             <td>{{ $tag->id }}</td>
                             <td>{{ $tag->name }}</td>
                             <td width="10px">
-                                <a class="btn btn-warning btn-sm" href="{{ route('admin.tags.edit', $tag) }}">Editar</a>
+                                @can('admin.tags.edit')
+                                    <a class="btn btn-primary" href="{{ route('admin.tags.edit', $tag) }}">
+                                        <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                                    </a>
+                                @endcan
                             </td>
                             <td width="10px">
-                                <form action="{{ route('admin.tags.destroy', $tag) }}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-                                </form>
+                                @can('admin.tags.destroy')
+                                    <form action="{{ route('admin.tags.destroy', $tag) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach
