@@ -320,7 +320,7 @@ return [
             'can'       => 'admin.home'
         ],
         [
-            'header' => 'GESTIÓN DE USUARIOS',
+            'header' => 'GESTIÓN DE USUARIOSSSS',
             'can'       => 'admin.users.index'
         ],
         [
