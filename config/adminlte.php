@@ -316,40 +316,56 @@ return [
             'route'        => 'admin.home', 
             'icon'        => 'fas fa-fw fa-tachometer-alt',
             'label_color' => 'success',
-            'classes'       => 'mb-2'
+            'classes'       => 'mb-2',
+            'can'       => 'admin.home'
+        ],
+        [
+            'header' => 'GESTIÓN DE USUARIOSSSS',
+            'can'       => 'admin.users.index'
         ],
         [
             'text'        => 'Usuarios',
             'route'        => 'admin.users.index', 
             'icon'        => 'fas fa-fw fa-users',
             'label_color' => 'success',
-            'classes'       => 'mb-2'
-        ],
-        ['header' => 'ADMINISTRADOR'],
-        [
-            'text' => 'Categorías',
-            'route'  => 'admin.categories.index',
-            'icon' => 'fab fa-fw fa-buffer',
-            'active' => ['admin/categories*']
+            'classes'       => 'mb-2',
+            'can'       => 'admin.users.index'
         ],
         [
-            'text' => 'Etiquetas',
-            'route'  => 'admin.tags.index',
-            'icon' => 'far fa-fw fa-bookmark',
-            'active' => ['admin/tags*'],
-            'classes'       => 'mb-3'
+            'header' => 'ADMINISTRADOR',
+            'can'       => 'admin.categories.edit'
+        ],
+        [
+            'text'      => 'Categorías',
+            'route'     => 'admin.categories.index',
+            'icon'      => 'fab fa-fw fa-buffer',
+            'active'    => ['admin/categories*'],
+            'can'       => 'admin.categories.index'
+        ],
+        [
+            'text'      => 'Etiquetas',
+            'route'      => 'admin.tags.index',
+            'icon'      => 'far fa-fw fa-bookmark',
+            'active'    => ['admin/tags*'],
+            'classes'       => 'mb-3',
+            'can'       => 'admin.tags.index'
         ],
 
-        ['header' => 'Opciones del Blog'],
+        [   
+            'header' => 'OPCIONES DEL BLOG',
+            'can'        => 'admin.posts.index'
+        ],
             [
                 'text'       => 'Lista de post',
                 'route'        => 'admin.posts.index',
-                'icon'      => 'fas fa-fw fa-clipboard-list'
+                'icon'      => 'fas fa-fw fa-clipboard-list',
+                'can'        => 'admin.posts.index'
             ],
             [
                 'text'       => 'Crear nuevo post',
                 'route'        => 'admin.posts.create',
-                'icon'      => 'fas fa-fw fa-plus-circle'
+                'icon'      => 'fas fa-fw fa-plus-circle',
+                'can'        => 'admin.posts.create'
             ],
     ],
 
