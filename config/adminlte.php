@@ -320,7 +320,7 @@ return [
             'can'       => 'admin.home'
         ],
         [
-            'header' => 'GESTIÓN DE USUARIOSSSS',
+            'header' => 'GESTIÓN DE USUARIOS',
             'can'       => 'admin.users.index'
         ],
         [
@@ -330,6 +330,14 @@ return [
             'label_color' => 'success',
             'classes'       => 'mb-2',
             'can'       => 'admin.users.index'
+        ],
+        [
+            'text'        => 'Roles',
+            'route'        => 'admin.roles.index', 
+            'icon'        => 'fas fa-fw fa-users-cog',
+            'label_color' => 'success',
+            'classes'       => 'mb-2',
+            'can'       => 'admin.roles.index'
         ],
         [
             'header' => 'ADMINISTRADOR',
